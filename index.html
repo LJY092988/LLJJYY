@@ -3,191 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <title>小梁的个人主页</title>
+
     <style>
-        /* 定义主色调变量 */
         :root {
-            --main-color: #3498db;      /* 主色调（蓝色，用于标题、头像边框） */
-            --secondary-color: #ff8c42; /* 次色调（橙色，用于表格边框） */
-            --bg-color: #ffe6f0;        /* 背景色（淡粉色） */
-            --text-color: #333333;      /* 文字颜色 */
+            --main-color: #ff6fa1;
+            --secondary-color: #ff9f43;
+            --bg-color: #ffe6f0;
+            --card-bg: #ffffff;
+            --text-color: #333;
         }
 
         body {
             font-family: "微软雅黑", Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
+            margin: 0;
+            padding: 30px 0;
         }
 
-        h1, h2 {
+        h1 {
+            text-align: center;
             color: var(--main-color);
+            margin-bottom: 30px;
         }
 
-        hr {
-            border: 1px solid var(--main-color);
+        h2 {
+            color: var(--main-color);
+            border-left: 6px solid var(--main-color);
+            padding-left: 10px;
+            margin-top: 30px;
         }
 
+        /* 主布局 */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 25px;
+        }
+
+        /* 左侧栏 */
+        .sidebar {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .sidebar:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto 15px;
+            border: 4px solid var(--main-color);
+            transition: transform 0.4s;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .sidebar p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* 右侧内容区 */
+        .content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 6px 0;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: translateX(6px);
+        }
+
+        /* 表格 */
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
         }
 
         th, td {
             border: 1px solid var(--secondary-color);
-            padding: 8px;
+            padding: 10px;
+            text-align: center;
         }
 
-        img.avatar {
-            border-radius: 50%;
-            border: 3px solid var(--main-color);
-            display: block;
-            margin: 0 auto;
+        tr:hover {
+            background-color: #fff1e6;
         }
 
+        /* 链接 */
         a {
             color: var(--main-color);
+            font-weight: bold;
             text-decoration: none;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: #ff3f83;
         }
 
-        /* 留言表单样式 */
+        /* 留言表单 */
         form {
-            background-color: #ffffff;
+            background: #fff7fb;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin-top: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
         }
 
-        form label {
+        label {
+            font-weight: bold;
             display: block;
             margin-top: 10px;
-            font-weight: bold;
         }
 
-        form input, form textarea {
+        input, textarea {
             width: 100%;
+            margin-top: 6px;
             padding: 8px;
-            margin-top: 5px;
+            border-radius: 6px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 14px;
         }
 
-        form textarea {
-            resize: vertical;
+        textarea {
             height: 100px;
+            resize: vertical;
         }
 
-        form button {
+        button {
             margin-top: 15px;
-            padding: 10px 20px;
-            background-color: var(--main-color);
+            padding: 10px 30px;
+            border-radius: 25px;
+            background: var(--main-color);
             color: white;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        form button:hover {
-            background-color: #217dbb;
+        button:hover {
+            background: #ff3f83;
+            transform: scale(1.05);
         }
 
-        /* 页脚样式 */
         footer {
-            background-color: var(--main-color);
-            color: white;
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 15px 0;
-            border-radius: 8px;
             margin-top: 40px;
+            color: #888;
+        }
+
+        /* 响应式：小屏自动变一栏 */
+        @media (max-width: 800px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
 <h1>欢迎来到小梁的个人主页</h1>
-<hr>
 
-<h2>关于我</h2>
-<img src="00C443C5131CF076862DF85FF9A10490.png"
-     alt="头像"
-     width="250"
-     height="200"
-     class="avatar" />
-<p>大家好！我叫<strong>小梁</strong>，今年22岁，是一名计算机专业的大学生。</p>
-<p>我喜欢旅游、听音乐和打游戏。我的座右铭是："学无止境，每天进步一点点。"</p>
+<div class="container">
 
-<h2>我的技能</h2>
-<ul>
-    <li>HTML 网页制作</li>
-    <li>Python 编程</li>
-    <li>Office 办公软件</li>
-    <li>摄影与修图</li>
-</ul>
+    <!-- 左侧栏 -->
+    <div class="sidebar">
+        <img src="00C443C5131CF076862DF85FF9A10490.png" class="avatar">
+        <p>小梁 · 计算机专业</p>
 
-<h2>我的学习计划</h2>
-<ol>
-    <li>学习 HTML 基础</li>
-    <li>学习 CSS 样式</li>
-    <li>学习 JavaScript 交互</li>
-    <li>完成一个完整的网页项目</li>
-</ol>
+        <h2>联系我</h2>
+        <table>
+            <tr><th>方式</th><th>内容</th></tr>
+            <tr><td>邮箱</td><td>2059324696@qq.com</td></tr>
+            <tr><td>电话</td><td>151-0771-6929</td></tr>
+        </table>
+    </div>
 
-<h2>我喜欢的网站</h2>
-<p>以下是一些我经常访问的网站：</p>
-<ul>
-    <li><a href="https://www.baidu.com">百度</a>- 搜索引擎</li>
-    <li><a href="https://www.bilibili.com">哔哩哔哩</a>- 学习视频</li>
-    <li><a href="https://github.com">GitHub</a>- 代码托管</li>
-</ul>
+    <!-- 右侧内容 -->
+    <div class="content">
+        <h2>关于我</h2>
+        <p>大家好！我叫小梁，今年22岁，是一名计算机专业的大学生。</p>
+        <p>我喜欢旅游、听音乐和打游戏。我的座右铭是：“学无止境，每天进步一点点。”</p>
 
-<h2>联系我</h2>
-<table>
-    <tr>
-        <th>联系方式</th>
-        <th>内容</th>
-    </tr>
-    <tr>
-        <td>邮箱</td>
-        <td>2059324696@qq.com</td>
-    </tr>
-    <tr>
-        <td>电话</td>
-        <td>151-0771-6929</td>
-    </tr>
-    <tr>
-        <td>地址</td>
-        <td>中国北京市</td>
-    </tr>
-</table>
+        <h2>我的技能</h2>
+        <ul>
+            <li>HTML 网页制作</li>
+            <li>Python 编程</li>
+            <li>Office 办公软件</li>
+            <li>摄影与修图</li>
+        </ul>
 
-<h2>给我留言</h2>
-<form>
-    <label for="name">你的名字</label>
-    <input type="text" id="name" name="name" placeholder="请输入你的名字" required>
+        <h2>我的学习计划</h2>
+        <ol>
+            <li>学习 HTML 基础</li>
+            <li>学习 CSS 样式</li>
+            <li>学习 JavaScript 交互</li>
+            <li>完成一个完整的网站项目</li>
+        </ol>
 
-    <label for="email">你的邮箱</label>
-    <input type="email" id="email" name="email" placeholder="请输入你的邮箱" required>
+        <h2>给我留言</h2>
+        <p>如果你对我的主页或学习内容有任何建议，欢迎在下方留言交流 😊</p>
+        <form>
+            <label>你的名字</label>
+            <input type="text">
 
-    <label for="message">留言内容</label>
-    <textarea id="message" name="message" placeholder="请输入留言内容" required></textarea>
+            <label>你的邮箱</label>
+            <input type="email">
 
-    <button type="submit">提交留言</button>
-</form>
+            <label>留言内容</label>
+            <textarea></textarea>
 
-<!-- 页脚 -->
-<footer>
-    &copy; 2026 小梁的个人主页 | 版权所有
-</footer>
+            <button type="submit">提交留言</button>
+
+        </form>
+    </div>
+
+    <footer>
+        © 2026 小梁的个人主页
+    </footer>
+
+</div>
 
 </body>
 </html>
