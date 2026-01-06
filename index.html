@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>小梁的个人主页</title>
+    <style>
+        /* 定义主色调变量 */
+        :root {
+            --main-color: #3498db;      /* 主色调（蓝色，用于标题、头像边框） */
+            --secondary-color: #ff8c42; /* 次色调（橙色，用于表格边框） */
+            --bg-color: #ffe6f0;        /* 背景色（淡粉色） */
+            --text-color: #333333;      /* 文字颜色 */
+        }
+
+        body {
+            font-family: "微软雅黑", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            color: var(--main-color);
+        }
+
+        hr {
+            border: 1px solid var(--main-color);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid var(--secondary-color);
+            padding: 8px;
+        }
+
+        img.avatar {
+            border-radius: 50%;
+            border: 3px solid var(--main-color);
+            display: block;
+            margin: 0 auto;
+        }
+
+        a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 留言表单样式 */
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        form textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        form button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--main-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: #217dbb;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: var(--main-color);
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>欢迎来到小梁的个人主页</h1>
+<hr>
+
+<h2>关于我</h2>
+<img src="00C443C5131CF076862DF85FF9A10490.png"
+     alt="头像"
+     width="250"
+     height="200"
+     class="avatar" />
+<p>大家好！我叫<strong>小梁</strong>，今年22岁，是一名计算机专业的大学生。</p>
+<p>我喜欢旅游、听音乐和打游戏。我的座右铭是："学无止境，每天进步一点点。"</p>
+
+<h2>我的技能</h2>
+<ul>
+    <li>HTML 网页制作</li>
+    <li>Python 编程</li>
+    <li>Office 办公软件</li>
+    <li>摄影与修图</li>
+</ul>
+
+<h2>我的学习计划</h2>
+<ol>
+    <li>学习 HTML 基础</li>
+    <li>学习 CSS 样式</li>
+    <li>学习 JavaScript 交互</li>
+    <li>完成一个完整的网页项目</li>
+</ol>
+
+<h2>我喜欢的网站</h2>
+<p>以下是一些我经常访问的网站：</p>
+<ul>
+    <li><a href="https://www.baidu.com">百度</a>- 搜索引擎</li>
+    <li><a href="https://www.bilibili.com">哔哩哔哩</a>- 学习视频</li>
+    <li><a href="https://github.com">GitHub</a>- 代码托管</li>
+</ul>
+
+<h2>联系我</h2>
+<table>
+    <tr>
+        <th>联系方式</th>
+        <th>内容</th>
+    </tr>
+    <tr>
+        <td>邮箱</td>
+        <td>2059324696@qq.com</td>
+    </tr>
+    <tr>
+        <td>电话</td>
+        <td>151-0771-6929</td>
+    </tr>
+    <tr>
+        <td>地址</td>
+        <td>中国北京市</td>
+    </tr>
+</table>
+
+<h2>给我留言</h2>
+<form>
+    <label for="name">你的名字</label>
+    <input type="text" id="name" name="name" placeholder="请输入你的名字" required>
+
+    <label for="email">你的邮箱</label>
+    <input type="email" id="email" name="email" placeholder="请输入你的邮箱" required>
+
+    <label for="message">留言内容</label>
+    <textarea id="message" name="message" placeholder="请输入留言内容" required></textarea>
+
+    <button type="submit">提交留言</button>
+</form>
+
+<!-- 页脚 -->
+<footer>
+    &copy; 2026 小梁的个人主页 | 版权所有
+</footer>
+
+</body>
+</html>
+
